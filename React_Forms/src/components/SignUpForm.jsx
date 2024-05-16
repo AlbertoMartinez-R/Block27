@@ -7,15 +7,16 @@ export default function SignUpForm() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-    
+
         try {
-            const response = await fetch(`https://fsa-jwt-practice.herokuapp.com/signup`)
+            const response = await fetch(`https://fsa-jwt-practice.herokuapp.com/signup`);
             const result = await response.json();
+            setToken(result.token);
             console.log(result);
         } catch (error) {
-          setError(error.message);
+            setError(error.message);
         }
-      }
+    }
 
     return (
         <div>
